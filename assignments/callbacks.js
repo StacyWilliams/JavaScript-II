@@ -4,34 +4,14 @@
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
-/* 
 
-  //Given this problem: 
-  
-  function firstItem(arr, cb) {
-    // firstItem passes the first item of the given array to the callback function.
-  }
-
-  // Potential Solution:
-
-  // Higher order function using "cb" as the call back
-  function firstItem(arr, cb) {
-    return cb(arr[0]);
-  }
-
-  // Function invocation 
-  firstItem(items, function(first) {
-    console.log(first)
-  });
-
-*/
 function firstItem(array, callback) {
   callback(array[0]);
 }
 
-firstItem(items, (first) =>
+firstItem(items, (first) => {
  console.log(first) 
-) 
+}) ;
 
  // getLength passes the length of the array into the callback.
 
@@ -39,10 +19,10 @@ function getLength(array, callback) {
   callback(array.length);
 }
 
-getLength(items, (length) => 
+getLength(items, (length) => {
 console.log(length)
  
-)
+});
 
 //function last(arr, cb) {
   // last passes the last item of the array into the callback.
@@ -59,6 +39,8 @@ console.log(length)
  })
  
 // sumNums adds two numbers (x, y) and passes the result to the callback.
+
+
 function sumNums(x, y, callback) {
    return callback(x + y);
    
@@ -76,6 +58,8 @@ sumNums(7,4, function(addition){
 
 
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  
+  
   function multNums(x, y, callback) {
     return callback(x * y);
     
@@ -88,19 +72,47 @@ sumNums(7,4, function(addition){
 
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  
+  // Q&A
+  
+  const callback = (yesOrNo) => {
+    console.log(yesOrNo);
+  };
+  function contains(item, list, cb) {
+   
+  cb(list.includes(item).toString());
+  }
+
+    contains('Pencil', items , callback);
+    contains('Pencils', items , callback);
+    contains('Notebook', items , callback);
+    contains('Gum', items , callback);
+    contains('My little sister', items , callback);
+      
+             
+
+    
+ 
+       
+   
+  
+
+  
+ 
+    // Study Group
   function contains(item, list, cb) {
     cb(list.includes(item))
 
 }
      contains('Gum', items, function(result) {
      console.log(result)
-} )
+} );
 
 
-/* STRETCH PROBLEM */
+/* STRETCH PROBLEM 
 
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
-  // Do not mutate the original array.
-}
+  // Do not mutate the original array 
+*/
